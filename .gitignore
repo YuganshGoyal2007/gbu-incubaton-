@@ -1,0 +1,17 @@
+# OS and Environment
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.bak
+*.zip
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache
+__pycache__/
+*.py[cod]

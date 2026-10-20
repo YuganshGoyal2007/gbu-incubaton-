@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GBU Incubation 2.0 — Gautam Buddha University Startup & Innovation Ecosystem</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="scroll-progress-bar" id="scroll-progress"></div>
+
+  <!-- ==========================================================================
+       TOP SYSTEM STATUS & MULTI-ROLE SWITCHER BAR
+       ========================================================================== -->
+  <div class="system-ticker-bar">
+    <div class="ticker-left">
+      <div class="ticker-item">
+        <span class="ticker-dot"></span>
+        <span>GBU Incubation 2.0 Live Operating Environment</span>
+      </div>
+      <div class="ticker-item" style="color: #94A3B8;">
+        <span>AIC-GBU / GBURIF • Greater Noida NCR Campus</span>
+      </div>
+    </div>
+    
+    <div class="role-switcher-wrap">
+      <span class="role-switcher-label">Simulate Portal Persona:</span>
+      <div class="role-pill-group">
+        <button class="role-pill active" data-role="visitor" onclick="setRole('visitor')">Public Visitor</button>
+        <button class="role-pill" data-role="student" onclick="setRole('student')">Student Portal (Aryan)</button>
+        <button class="role-pill" data-role="judge" onclick="setRole('judge')">Judge / Reviewer</button>
+        <button class="role-pill" data-role="organizer" onclick="setRole('organizer')">Event / Hack Organizer</button>
+        <button class="role-pill" data-role="admin" onclick="setRole('admin')">Incubation Admin</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container container-wide header-inner">
+      <div class="brand-wrapper" onclick="switchView('home')" style="cursor: pointer;">
+        <img src="assets/img/gbu_logo_header.png" alt="Gautam Buddha University Logo" class="brand-logo-img">
+        <div class="brand-divider"></div>
+        <div class="brand-text-block">
+          <span class="brand-title">GBU Incubation 2.0</span>
+          <span class="brand-subtitle">Atal Incubation Centre • GBURIF</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a class="nav-link active" data-view="home" onclick="switchView('home')">Home</a></li>
+          <li><a class="nav-link" data-view="hackathons" onclick="switchView('hackathons')">Hackathons</a></li>
+          <li><a class="nav-link" data-view="events" onclick="switchView('events')">Events & Programs</a></li>
+          <li><a class="nav-link" data-view="facilities" onclick="switchView('facilities')">Labs & Facilities</a></li>
+          <li><a class="nav-link" data-view="funding" onclick="switchView('funding')">Grants & Funding</a></li>
+          <li><a class="nav-link" data-view="startups" onclick="switchView('startups')">Startups</a></li>
+          <li><a class="nav-link" data-view="news" onclick="switchView('news')">News & Circulars</a></li>
+          <li><a class="nav-link portal-highlight" data-view="student" onclick="switchView('student')">
+            <i data-lucide="graduation-cap"></i> Student Portal
+          </a></li>
+          <li id="nav-admin-link" style="display: none;">
+            <a class="nav-link" data-view="admin" onclick="switchView('admin')" style="color: var(--accent); font-weight: 700;">
+              Admin Control Center
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="openApplicationWizard()">
+          <i data-lucide="sparkles"></i> Apply for Incubation
+        </button>
+        <button class="btn btn-primary" onclick="switchView('student')">
+          <i data-lucide="user-check"></i> My Student Desk
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN VIEWPORT CONTAINER
+       ========================================================================== -->
+  <main id="main-viewport-content">
+
+    <!-- ======================================================================
+         VIEW 1: HOMEPAGE (UNIFIED INNOVATION ECOSYSTEM)
+         ====================================================================== -->
+    <section id="view-home" class="view-section active">
+      
+      <!-- HERO COMPONENT -->
+      <div class="hero-section">
+        <div class="hero-pattern"></div>
+        <div class="container container-wide hero-grid">
+          <div class="hero-content">
+            <div class="hero-super">
+              <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+              Official AIC-GBU Startup Ecosystem Platform
+            </div>
+            <h1 class="hero-title">
+              From an Information Website to a <span>Connected Startup Platform</span>
+            </h1>
+            <p class="hero-desc">
+              Discover national hackathons, register teams, find student co-founders, book fabrication lab benches, track seed prototype grants, connect with accredited mentors, and accelerate your startup into Gautam Buddha University's 30,000+ sq. ft. incubation complex.
+            </p>
+            
+            <div class="hero-cta-group">
+              <button class="btn btn-primary btn-lg" onclick="openApplicationWizard()">
+                <i data-lucide="rocket"></i> Apply for Incubation Cohort
+              </button>
+              <button class="btn btn-accent btn-lg" onclick="switchView('student')">
+                <i data-lucide="graduation-cap"></i> Open Student Innovation Portal
+              </button>
+              <button class="btn btn-outline btn-lg" onclick="switchView('facilities')">
+                <i data-lucide="cpu"></i> Explore Labs & Facilities
+              </button>
+            </div>
+
+            <!-- Impact Statistics Strip -->
+            <div class="hero-metrics-strip">
+              <div class="hero-metric-item">
+                <h4>30,000+</h4>
+                <p>Sq. Ft. Incubation Space</p>
+              </div>
+              <div class="hero-metric-item">
+                <h4 id="hero-stat-startups">54+</h4>
+                <p>Registered Startups</p>
+              </div>
+              <div class="hero-metric-item">
+                <h4>₹2.85 Cr</h4>
+                <p>Grants Disbursed</p>
+              </div>
+              <div class="hero-metric-item">
+                <h4>₹14.8 Cr</h4>
+                <p>Funding Facilitated</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual & Live Card Stack -->
+          <div class="hero-visual">
+            <div class="hero-card-stack">
+              <img src="assets/img/gbu_campus_main.jpg" alt="Gautam Buddha University Campus" class="hero-img-main">
+              <div class="hero-floating-stat">
+                <div class="hero-stat-badge">
+                  <div class="stat-icon-wrap">
+                    <i data-lucide="award"></i>
+                  </div>
+                  <div>
+                    <h5 style="font-size: 1rem; color: var(--navy); margin-bottom: 2px;">Supported by StartInUP & MSME</h5>
+                    <p style="font-size: 0.78rem; color: var(--muted); margin: 0;">State of UP Innovation Mission & AIC Network</p>
+                  </div>
+                </div>
+                <button class="btn btn-accent btn-sm" onclick="switchView('startups')">
+                  Explore Directory
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE CORE SYSTEM PORTALS GRID (6 DISTINCT PORTALS) -->
+      <section class="section section-light">
+        <div class="container container-wide">
+          <div class="section-header">
+            <div class="section-pretitle">Unified Digital Transformation</div>
+            <h2 class="section-title">Dedicated Portals for Every Ecosystem Stakeholder</h2>
+            <p class="section-desc">
+              One connected platform providing purpose-built workspaces for students, founders, mentors, event attendees, and administrators.
+            </p>
+          </div>
+
+          <div class="pillars-grid-6">
+            
+            <!-- Portal 1: Student Portal -->
+            <div class="pillar-card" onclick="switchView('student')" style="cursor: pointer; border-color: rgba(226, 114, 91, 0.4); background: #FFFCFB;">
+              <div class="pillar-icon-box" style="background: var(--accent-surface); color: var(--accent);">
+                <i data-lucide="graduation-cap"></i>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <h4 class="pillar-title" style="margin-bottom: 0;">Student Innovation Portal</h4>
+                <span class="badge badge-accent">Dedicated</span>
+              </div>
+              <p class="pillar-desc">
+                Personalized student desk: team matching board, book prototype lab benches, request mentor office hours, view innovation credits, and download digital certificates.
+              </p>
+              <span class="pillar-link" style="color: var(--accent);">Launch Student Portal <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+            </div>
+
+            <!-- Portal 2: Hackathon Management Portal -->
+            <div class="pillar-card" onclick="switchView('hackathons')" style="cursor: pointer;">
+              <div class="pillar-icon-box">
+                <i data-lucide="terminal"></i>
+              </div>
+              <h4 class="pillar-title">Hackathon Management Portal</h4>
+              <p class="pillar-desc">
+                Challenge publishing, participant & team registration, GitHub/demo submissions, transparent rubric judging, and digital certificates with QR verification.
+              </p>
+              <span class="pillar-link">Open Hackathons Portal <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+            </div>
+
+            <!-- Portal 3: Labs & Specialized Facilities -->
+            <div class="pillar-card" onclick="switchView('facilities')" style="cursor: pointer;">
+              <div class="pillar-icon-box" style="background: var(--info-surface); color: var(--info);">
+                <i data-lucide="cpu"></i>
+              </div>
+              <h4 class="pillar-title">Labs & Fabrication Portal</h4>
+              <p class="pillar-desc">
+                Explore specialized facilities: IoT and drone telemetry bench, biotechnology analytical testing, 3D rapid prototyping, and AI high-performance GPU clusters.
+              </p>
+              <span class="pillar-link">View Lab Facilities <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+            </div>
+
+            <!-- Portal 4: Grants & Funding Ledger -->
+            <div class="pillar-card" onclick="switchView('funding')" style="cursor: pointer;">
+              <div class="pillar-icon-box" style="background: var(--success-surface); color: var(--success);">
+                <i data-lucide="banknote"></i>
+              </div>
+              <h4 class="pillar-title">Grants & Seed Funding Ledger</h4>
+              <p class="pillar-desc">
+                Transparent deployment tracking for UP StartInUP prototype grants, MSME design subsidies, and milestone-based disbursement tranches with audit records.
+              </p>
+              <span class="pillar-link">Audit Funding Ledger <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+            </div>
+
+            <!-- Portal 5: Events & Programs Portal -->
+            <div class="pillar-card" onclick="switchView('events')" style="cursor: pointer;">
+              <div class="pillar-icon-box" style="background: var(--purple-surface); color: var(--purple);">
+                <i data-lucide="calendar-check"></i>
+              </div>
+              <h4 class="pillar-title">Events & Programs Portal</h4>
+              <p class="pillar-desc">
+                Discover workshops and bootcamps, reserve capacity, generate tamper-proof QR attendee passes, and verify physical check-in with door scanners.
+              </p>
+              <span class="pillar-link">Open Events Portal <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+            </div>
+
+            <!-- Portal 6: Unified Admin & Impact Dashboard -->
+            <div class="pillar-card" onclick="setRole('admin'); switchView('admin')" style="cursor: pointer;">
+              <div class="pillar-icon-box" style="background: var(--primary-surface); color: var(--primary);">
+                <i data-lucide="layout-dashboard"></i>
+              </div>
+              <h4 class="pillar-title">Unified Admin & Impact Dashboard</h4>
+              <p class="pillar-desc">
+                Centralized dashboard with role-based access control, application scoring queues, attendee tracking, and accreditation export reports.
+              </p>
+              <span class="pillar-link">Open Dashboard <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i></span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIVE OPPORTUNITY STRIP: CURRENT OPEN HACKATHON & HIGHLIGHTED EVENT -->
+      <section class="section section-subtle">
+        <div class="container container-wide">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+            <div>
+              <span class="badge badge-accent">Live Opportunities</span>
+              <h3 style="font-size: 1.85rem; margin-top: 0.5rem; color: var(--navy);">Now Open for Registration</h3>
+            </div>
+            <div style="display: flex; gap: 0.75rem;">
+              <button class="btn btn-outline" onclick="switchView('hackathons')">All Hackathons</button>
+              <button class="btn btn-outline" onclick="switchView('events')">All Events</button>
+            </div>
+          </div>
+
+          <div class="card-grid-2">
+            <!-- Featured Hackathon -->
+            <div class="content-card">
+              <div class="card-image-wrap">
+                <img src="assets/img/gallery_startup_meet.jpg" alt="GBU Innovation Grand Challenge">
+                <span class="badge badge-success card-badge-floating">Registration Open</span>
+              </div>
+              <div class="card-body">
+                <div class="card-meta-row">
+                  <span class="card-meta-item"><i data-lucide="terminal"></i> GBU Hackathon Track</span>
+                  <span class="card-meta-item"><i data-lucide="calendar"></i> Deadline: 15 Apr 2027</span>
+                </div>
+                <h4 class="card-title">GBU Innovation Grand Challenge 2027</h4>
+                <p class="card-text">
+                  Inter-institutional challenge inviting problem solvers in AI, Smart Agriculture, and Clean Mobility. Compete for ₹5 Lakh in cash prizes, direct seed grant access, and co-working workspace.
+                </p>
+                <div class="card-footer">
+                  <span style="font-weight: 700; color: var(--primary);">₹5,00,000 Prize Pool</span>
+                  <button class="btn btn-primary btn-sm" onclick="startHackathonRegistration('hack-2027-1')">
+                    Register Team Now
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Featured Event -->
+            <div class="content-card">
+              <div class="card-image-wrap">
+                <img src="assets/img/gallery_awards.jpg" alt="GBU Startup Conclave">
+                <span class="badge badge-accent card-badge-floating">Featured Conclave</span>
+              </div>
+              <div class="card-body">
+                <div class="card-meta-row">
+                  <span class="card-meta-item"><i data-lucide="calendar"></i> May 14, 2027</span>
+                  <span class="card-meta-item"><i data-lucide="map-pin"></i> GBU Main Auditorium</span>
+                </div>
+                <h4 class="card-title">Annual Startup Conclave & Angel Pitch Fest 2027</h4>
+                <p class="card-text">
+                  Connect with prominent venture investors, alumni entrepreneurs, and state mission leaders. Live prototype demos and startup pitching on the main campus stage.
+                </p>
+                <div class="card-footer">
+                  <span style="font-size: 0.85rem; color: var(--muted);"><i data-lucide="ticket"></i> Free Pass + Instant QR Code</span>
+                  <button class="btn btn-accent btn-sm" onclick="startEventRegistration('evt-301')">
+                    Reserve Delegate Seat
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO STARTUPS LOGOS STRIP -->
+      <section class="section section-light">
+        <div class="container container-wide" style="text-align: center;">
+          <div class="section-pretitle">Portfolio Startups & Ecosystem Partners</div>
+          <h3 style="font-size: 1.6rem; color: var(--navy); margin-bottom: 1.5rem;">Startups Incubated & Supported at GBURIF</h3>
+          
+          <div class="partner-logo-grid">
+            <div class="partner-logo-item"><img src="assets/logos/puraseed.png" alt="Puraseed Biotech"></div>
+            <div class="partner-logo-item"><img src="assets/logos/elios_health.png" alt="Elios Health"></div>
+            <div class="partner-logo-item"><img src="assets/logos/koyalfm.png" alt="Koyal FM"></div>
+            <div class="partner-logo-item"><img src="assets/logos/sohaorganic.png" alt="Soha Organic"></div>
+            <div class="partner-logo-item"><img src="assets/logos/studlence.png" alt="Studlence"></div>
+            <div class="partner-logo-item"><img src="assets/logos/terra.png" alt="Terra Green"></div>
+          </div>
+
+          <div style="margin-top: 2rem;">
+            <button class="btn btn-outline" onclick="switchView('startups')">
+              <i data-lucide="grid"></i> View Full Directory with Stage & Sector Filters
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPCOMING DEADLINES STRIP -->
+      <section class="section section-subtle">
+        <div class="container container-wide">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+            <div>
+              <div class="section-pretitle">Important Dates</div>
+              <h3 style="font-size:1.65rem;color:var(--navy);">Upcoming Registration Deadlines</h3>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;">
+            <div class="deadline-card">
+              <div class="deadline-countdown">
+                <div class="deadline-days" id="deadline-days-1">14</div>
+                <div class="deadline-label">Days Left</div>
+              </div>
+              <div class="deadline-info">
+                <div class="deadline-title">GBU Innovation Grand Challenge 2027</div>
+                <div class="deadline-desc">Team registration closes April 15, 2027</div>
+                <button class="btn btn-primary btn-sm" style="margin-top:0.75rem;" onclick="startHackathonRegistration('hack-2027-1')">Register Now</button>
+              </div>
+            </div>
+            <div class="deadline-card">
+              <div class="deadline-countdown">
+                <div class="deadline-days" id="deadline-days-2">23</div>
+                <div class="deadline-label">Days Left</div>
+              </div>
+              <div class="deadline-info">
+                <div class="deadline-title">Annual Startup Conclave 2027</div>
+                <div class="deadline-desc">Delegate passes close May 14, 2027</div>
+                <button class="btn btn-accent btn-sm" style="margin-top:0.75rem;" onclick="startEventRegistration('evt-301')">Reserve Pass</button>
+              </div>
+            </div>
+            <div class="deadline-card">
+              <div class="deadline-countdown">
+                <div class="deadline-days" id="deadline-days-3">38</div>
+                <div class="deadline-label">Days Left</div>
+              </div>
+              <div class="deadline-info">
+                <div class="deadline-title">Spring Incubation Cohort 2027 Intake</div>
+                <div class="deadline-desc">Applications close May 30, 2027</div>
+                <button class="btn btn-outline btn-sm" style="margin-top:0.75rem;" onclick="openApplicationWizard()">Apply for Incubation</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MENTORS DIRECTORY SECTION -->
+      <section class="section section-light">
+        <div class="container container-wide">
+          <div class="section-header">
+            <div class="section-pretitle">MAARG Aligned Faculty & Industry Mentors</div>
+            <h2 class="section-title">Meet Your Incubation Mentors</h2>
+            <p class="section-desc">Access certified mentors from industry, academia, and investment networks for one-on-one guidance sessions.</p>
+          </div>
+          <div class="mentor-grid">
+            <div class="mentor-card">
+              <div class="mentor-card-header">
+                <img src="assets/img/team-3.jpg" alt="Er. Amitava Sen" class="mentor-avatar">
+                <div>
+                  <div class="mentor-name">Er. Amitava Sen</div>
+                  <div class="mentor-title">AI & Avionics Principal Architect</div>
+                  <div class="mentor-org">Mentor-in-Residence, AIC-GBU</div>
+                </div>
+              </div>
+              <div class="mentor-card-body">
+                <div class="mentor-skill-tags">
+                  <span class="skill-tag">Drone Systems</span>
+                  <span class="skill-tag">Embedded AI</span>
+                  <span class="skill-tag">Telemetry</span>
+                  <span class="skill-tag">PCB Design</span>
+                </div>
+                <div class="mentor-stats-row">
+                  <span class="mentor-stat"><i data-lucide="users" style="width:13px;height:13px;"></i> <strong>12</strong> mentees</span>
+                  <span class="mentor-stat"><i data-lucide="star" style="width:13px;height:13px;color:var(--warning);"></i> <strong>4.9</strong> rating</span>
+                  <span class="mentor-stat"><i data-lucide="clock" style="width:13px;height:13px;"></i> 2hr/week</span>
+                </div>
+              </div>
+              <div class="mentor-card-footer">
+                <button class="btn btn-outline-primary btn-sm" style="flex:1;" onclick="openModal('modal-request-mentor')">Request Session</button>
+                <button class="btn btn-subtle btn-sm" onclick="alert('Viewing full profile for Er. Amitava Sen — 14 years IoT & Avionics experience. Patents: 3. Startups mentored: 8.')">Profile</button>
+              </div>
+            </div>
+            <div class="mentor-card">
+              <div class="mentor-card-header">
+                <img src="assets/img/team-1.jpg" alt="Dr. Bhupendra Kumar" class="mentor-avatar">
+                <div>
+                  <div class="mentor-name">Dr. Bhupendra Kumar</div>
+                  <div class="mentor-title">Dean, School of Biotechnology</div>
+                  <div class="mentor-org">GBU Faculty & IP Advisor</div>
+                </div>
+              </div>
+              <div class="mentor-card-body">
+                <div class="mentor-skill-tags">
+                  <span class="skill-tag">Patent Filing</span>
+                  <span class="skill-tag">Biotech R&D</span>
+                  <span class="skill-tag">IP Strategy</span>
+                  <span class="skill-tag">DSIR</span>
+                </div>
+                <div class="mentor-stats-row">
+                  <span class="mentor-stat"><i data-lucide="users" style="width:13px;height:13px;"></i> <strong>9</strong> mentees</span>
+                  <span class="mentor-stat"><i data-lucide="star" style="width:13px;height:13px;color:var(--warning);"></i> <strong>4.7</strong> rating</span>
+                  <span class="mentor-stat"><i data-lucide="clock" style="width:13px;height:13px;"></i> 3hr/week</span>
+                </div>
+              </div>
+              <div class="mentor-card-footer">
+                <button class="btn btn-outline-primary btn-sm" style="flex:1;" onclick="openModal('modal-request-mentor')">Request Session</button>
+                <button class="btn btn-subtle btn-sm" onclick="alert('Viewing full profile for Dr. Bhupendra Kumar — 22 years biotech research. ICAR Grant Reviewer. 38 patents filed.')">Profile</button>
+              </div>
+            </div>
+            <div class="mentor-card">
+              <div class="mentor-card-header">
+                <img src="assets/img/team-2.jpg" alt="Ms. Sunita Deshmukh" class="mentor-avatar">
+                <div>
+                  <div class="mentor-name">Ms. Sunita Deshmukh</div>
+                  <div class="mentor-title">Startup Legal & Term Sheet Advisor</div>
+                  <div class="mentor-org">Founder, Deshmukh & Partners LLP</div>
+                </div>
+              </div>
+              <div class="mentor-card-body">
+                <div class="mentor-skill-tags">
+                  <span class="skill-tag">Term Sheets</span>
+                  <span class="skill-tag">ESOP</span>
+                  <span class="skill-tag">Legal</span>
+                  <span class="skill-tag">Compliance</span>
+                </div>
+                <div class="mentor-stats-row">
+                  <span class="mentor-stat"><i data-lucide="users" style="width:13px;height:13px;"></i> <strong>7</strong> mentees</span>
+                  <span class="mentor-stat"><i data-lucide="star" style="width:13px;height:13px;color:var(--warning);"></i> <strong>4.8</strong> rating</span>
+                  <span class="mentor-stat"><i data-lucide="clock" style="width:13px;height:13px;"></i> 2hr/week</span>
+                </div>
+              </div>
+              <div class="mentor-card-footer">
+                <button class="btn btn-outline-primary btn-sm" style="flex:1;" onclick="openModal('modal-request-mentor')">Request Session</button>
+                <button class="btn btn-subtle btn-sm" onclick="alert('Viewing full profile for Ms. Sunita Deshmukh — 15 years startup legal advisory. 40+ Series A/B deals closed.')">Profile</button>
+              </div>
+            </div>
+            <div class="mentor-card">
+              <div class="mentor-card-header">
+                <img src="assets/img/team-4.jpg" alt="Saurabh Srivastava" class="mentor-avatar">
+                <div>
+                  <div class="mentor-name">Saurabh Srivastava</div>
+                  <div class="mentor-title">Angel Investor & Unit Economics</div>
+                  <div class="mentor-org">Partner, IAN & Inflection Point</div>
+                </div>
+              </div>
+              <div class="mentor-card-body">
+                <div class="mentor-skill-tags">
+                  <span class="skill-tag">Angel Funding</span>
+                  <span class="skill-tag">Unit Economics</span>
+                  <span class="skill-tag">GTM</span>
+                  <span class="skill-tag">Pitching</span>
+                </div>
+                <div class="mentor-stats-row">
+                  <span class="mentor-stat"><i data-lucide="users" style="width:13px;height:13px;"></i> <strong>15</strong> mentees</span>
+                  <span class="mentor-stat"><i data-lucide="star" style="width:13px;height:13px;color:var(--warning);"></i> <strong>5.0</strong> rating</span>
+                  <span class="mentor-stat"><i data-lucide="clock" style="width:13px;height:13px;"></i> 1hr/week</span>
+                </div>
+              </div>
+              <div class="mentor-card-footer">
+                <button class="btn btn-outline-primary btn-sm" style="flex:1;" onclick="openModal('modal-request-mentor')">Request Session</button>
+                <button class="btn btn-subtle btn-sm" onclick="alert('Viewing full profile for Saurabh Srivastava — Angel investor in 60+ startups. Portfolio value: ₹280 Cr. 3 exits.')">Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUNDER TESTIMONIALS -->
+      <section class="section section-light" style="background: var(--primary-dark); padding: 4rem 0;">
+        <div class="container container-wide">
+          <div class="section-header" style="margin-bottom:2.5rem;">
+            <div class="section-pretitle" style="color:var(--accent-light);">Founder Voices</div>
+            <h2 class="section-title" style="color:#FFFFFF;">What GBU Founders Say</h2>
+            <p class="section-desc" style="color:#CBD5E1;">Success stories from ventures nurtured at AIC-GBU incubation centre.</p>
+          </div>
+          <div class="testimonial-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-text">The AIC-GBU incubation ecosystem gave us laboratory infrastructure, seed capital through NIDHI-PRAYAS, and access to an incredible mentor network — all under one roof. Within 18 months, we grew from 4 students with an idea to a DPIIT-recognized startup with 200+ active farmers.</p>
+              <div class="testimonial-author">
+                <img src="assets/img/team-1.jpg" alt="Founder" class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Ravi Prakash Sharma</div>
+                  <div class="testimonial-role">Co-Founder, Puraseed Biotech Pvt Ltd</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">Getting 24/7 access to the drone telemetry lab and having Er. Amitava Sen guide our motor controller circuit design was transformative. The hackathon sprint pushed us to deliver a working prototype in 48 hours. That prototype became our Series A pitch deck centrepiece.</p>
+              <div class="testimonial-author">
+                <img src="assets/img/team-2.jpg" alt="Founder" class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Divya Gupta</div>
+                  <div class="testimonial-role">Founder & CEO, Elios Health & Mobility</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <p class="testimonial-text">The structured incubation program, from legal assistance with our IP to direct government grant access through UP StartInUP, made GBU's incubation the best decision of our entrepreneurial journey. We closed our seed round in 9 months.</p>
+              <div class="testimonial-author">
+                <img src="assets/img/team-4.jpg" alt="Founder" class="testimonial-avatar">
+                <div>
+                  <div class="testimonial-name">Aditya Pathak</div>
+                  <div class="testimonial-role">Co-Founder, Studlence EdTech</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section class="section section-light">
+        <div class="container container-wide">
+          <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;">
+            <div>
+              <div class="section-pretitle">Common Questions</div>
+              <h2 class="section-title">Frequently Asked Questions</h2>
+              <p class="section-desc">Everything a student, researcher, or founder needs to know about the AIC-GBU incubation process and platform.</p>
+              <button class="btn btn-primary" style="margin-top:1.5rem;" onclick="openApplicationWizard()">
+                <i data-lucide="rocket"></i> Apply for Incubation
+              </button>
+            </div>
+            <div class="faq-list">
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Who can apply for incubation at AIC-GBU?<i data-lucide="chevron-down" class="faq-chevron" style="width:18px;height:18px;"></i></div>
+                <div class="faq-answer">Any GBU student, alumnus, or faculty member with a technology-driven startup idea or early-stage venture may apply. External candidates from Noida-NCR region also qualify under the associate incubation program.</div>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">What facilities are available free of charge to incubatees?<i data-lucide="chevron-down" class="faq-chevron" style="width:18px;height:18px;"></i></div>
+                <div class="faq-answer">Resident incubatees receive free access to co-working desks, IoT lab benches, high-performance GPU clusters, 3D printing (up to 2 kg/month), and broadband internet. Specialized equipment requires booking but is subsidized.</div>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">How does the seed grant process work?<i data-lucide="chevron-down" class="faq-chevron" style="width:18px;height:18px;"></i></div>
+                <div class="faq-answer">Post formal incubation acceptance, startups are eligible for UP StartInUP prototype fund (up to ₹5 Lakh), NIDHI-PRAYAS grants (up to ₹10 Lakh), and SISFS (up to ₹20 Lakh). Disbursements are milestone-linked and tracked in the public ledger.</div>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Can I participate in hackathons without being an incubatee?<i data-lucide="chevron-down" class="faq-chevron" style="width:18px;height:18px;"></i></div>
+                <div class="faq-answer">Yes. All GBU students can register teams for hackathons. Winning teams receive direct fast-track incubation review along with prize money and DPIIT startup recognition assistance.</div>
+              </div>
+              <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">How long is the incubation program?<i data-lucide="chevron-down" class="faq-chevron" style="width:18px;height:18px;"></i></div>
+                <div class="faq-answer">Standard cohort runs 18 months with option to extend by 6 months. Pre-incubation (Ideation track) is a 6-month structured program available to first-time founders.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- IMPACT TIMELINE -->
+      <section class="section section-gradient">
+        <div class="container container-wide">
+          <div class="section-header">
+            <div class="section-pretitle">Our Journey</div>
+            <h2 class="section-title">AIC-GBU: A Decade of Innovation</h2>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+            <div class="impact-timeline">
+              <div class="timeline-entry">
+                <div class="timeline-dot milestone"><i data-lucide="flag" style="width:12px;height:12px;"></i></div>
+                <div class="timeline-year">2014</div>
+                <div class="timeline-event-title">AIC-GBU Foundation</div>
+                <div class="timeline-event-desc">University Research & Innovation Foundation registered as Section 8 company. First 5 incubatees onboarded.</div>
+              </div>
+              <div class="timeline-entry">
+                <div class="timeline-dot milestone"><i data-lucide="star" style="width:12px;height:12px;"></i></div>
+                <div class="timeline-year">2018</div>
+                <div class="timeline-event-title">Atal Incubation Centre Selection</div>
+                <div class="timeline-event-desc">Selected by DST under AIM mission. ₹10 Cr grant. 30,000 sq.ft facility expansion begins.</div>
+              </div>
+              <div class="timeline-entry">
+                <div class="timeline-dot"><i data-lucide="award" style="width:12px;height:12px;"></i></div>
+                <div class="timeline-year">2021</div>
+                <div class="timeline-event-title">50 Startup Milestone</div>
+                <div class="timeline-event-desc">50th startup incubated. Aggregate funding facilitated crosses ₹8 Crores. First international MoU signed.</div>
+              </div>
+              <div class="timeline-entry">
+                <div class="timeline-dot milestone"><i data-lucide="rocket" style="width:12px;height:12px;"></i></div>
+                <div class="timeline-year">2027</div>
+                <div class="timeline-event-title">Incubation 2.0 Digital Transformation</div>
+                <div class="timeline-event-desc">Launch of integrated digital platform. 54 active startups, ₹14.8 Cr funding facilitated, 6 specialized labs operational.</div>
+              </div>
+            </div>
+            <div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;">
+                <div class="stat-counter-card">
+                  <div class="stat-counter-icon"><i data-lucide="building-2"></i></div>
+                  <div class="stat-counter-value">54</div>
+                  <div class="stat-counter-label">Active Startups</div>
+                  <span class="stat-counter-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +18% YoY</span>
+                </div>
+                <div class="stat-counter-card">
+                  <div class="stat-counter-icon"><i data-lucide="file-check"></i></div>
+                  <div class="stat-counter-value">38</div>
+                  <div class="stat-counter-label">Patents Filed</div>
+                  <span class="stat-counter-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +6 this year</span>
+                </div>
+                <div class="stat-counter-card">
+                  <div class="stat-counter-icon"><i data-lucide="users"></i></div>
+                  <div class="stat-counter-value">200+</div>
+                  <div class="stat-counter-label">Founders Supported</div>
+                  <span class="stat-counter-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +32 this year</span>
+                </div>
+                <div class="stat-counter-card">
+                  <div class="stat-counter-icon"><i data-lucide="banknote"></i></div>
+                  <div class="stat-counter-value">₹14.8Cr</div>
+                  <div class="stat-counter-label">Funding Facilitated</div>
+                  <span class="stat-counter-change up"><i data-lucide="trending-up" style="width:12px;height:12px;"></i> +₹3.2Cr this yr</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 2: DEDICATED STUDENT INNOVATION PORTAL
+         ====================================================================== -->
+    <section id="view-student" class="view-section">
+      <!-- Portal Top Banner -->
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-accent">GBU Student Entrepreneurship Desk</span>
+              <span class="badge badge-neutral" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">Academic Session 2026-27</span>
+            </div>
+            <h1 class="portal-title">Student Innovation Portal</h1>
+            <p class="portal-subtitle">
+              Your centralized gateway to manage hackathon projects, find student co-founders, reserve fabrication lab benches, book faculty mentorship hours, and build your accredited startup portfolio.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-accent" onclick="openModal('modal-book-lab')">
+              <i data-lucide="cpu"></i> Book Lab Bench Slot
+            </button>
+            <button class="btn btn-primary" onclick="openModal('modal-post-team-match')">
+              <i data-lucide="user-plus"></i> Post Teammate Requirement
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portal Sub-Navigation Bar -->
+      <div class="portal-subnav">
+        <div class="container container-wide">
+          <ul class="portal-subnav-list">
+            <li class="portal-subnav-item active"><i data-lucide="user"></i> My Dashboard & Team</li>
+            <li class="portal-subnav-item" onclick="document.getElementById('team-matching-section').scrollIntoView({behavior: 'smooth'})"><i data-lucide="users"></i> Teammate Match Board</li>
+            <li class="portal-subnav-item" onclick="switchView('hackathons')"><i data-lucide="terminal"></i> Hackathon Workspace</li>
+            <li class="portal-subnav-item" onclick="switchView('facilities')"><i data-lucide="cpu"></i> Lab Benches</li>
+            <li class="portal-subnav-item" onclick="openApplicationWizard()"><i data-lucide="send"></i> Formal Incubation Intake</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-bar" style="margin: -1rem -1.5rem 1.5rem; padding: 0.6rem 1.5rem;">
+          <ul class="breadcrumb-list">
+            <li><a onclick="switchView('home')"><i data-lucide="home" style="width:13px;height:13px;"></i> Home</a></li>
+            <li>Student Innovation Portal</li>
+          </ul>
+        </div>
+                <!-- Student Identity Profile Strip -->
+        <div class="student-profile-strip">
+          <div class="student-avatar-wrap">
+            <div class="student-avatar">AS</div>
+            <div>
+              <h3 style="font-size: 1.45rem; color: var(--navy); margin-bottom: 2px;" id="student-profile-name">Aryan Sharma</h3>
+              <p style="font-size: 0.88rem; color: var(--navy-light);" id="student-profile-roll">Roll No: 23/ICS/042 • B.Tech Computer Science & Engineering (4th Year)</p>
+              <div class="student-badges-list">
+                <span class="badge badge-primary" id="student-profile-school">School of ICT (USICT)</span>
+                <span class="badge badge-success"><i data-lucide="shield-check" style="width: 12px; height: 12px;"></i> Active Student Founder</span>
+                <span class="badge badge-purple" id="student-credits-display">48 / 60 Innovation Credits</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <button class="btn btn-primary btn-sm" onclick="openApplicationWizard()">
+              <i data-lucide="rocket"></i> Upgrade Project to Incubatee
+            </button>
+          </div>
+        </div>
+
+        <!-- Student Analytics Widgets -->
+        <div id="student-analytics-wrap" style="margin-bottom: 2rem;">
+          <!-- Populated by controllers.js V5 -->
+        </div>
+
+        <!-- Student Main Workspace 2-Column Grid -->
+        <div class="student-dashboard-grid">
+          
+          <!-- Left Column: Active Projects, Team Roster & Lab Reservations -->
+          <div>
+            <!-- Active Hackathon Team Widget -->
+            <div class="student-widget-card">
+              <div class="widget-header">
+                <h4 class="widget-title"><i data-lucide="users" style="color: var(--primary);"></i> My Registered Team & Prototype</h4>
+                <span class="badge badge-success">Enrolled Active</span>
+              </div>
+              <div id="student-team-details">
+                <!-- Populated by controllers.js -->
+              </div>
+            </div>
+
+            <!-- Teammate Matching / Co-Founder Board -->
+            <div class="student-widget-card" id="team-matching-section">
+              <div class="widget-header">
+                <h4 class="widget-title"><i data-lucide="user-plus" style="color: var(--accent);"></i> Teammate & Co-Founder Matching Board</h4>
+                <button class="btn btn-outline-primary btn-sm" onclick="openModal('modal-post-team-match')">
+                  <i data-lucide="plus"></i> Post Requirement
+                </button>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">
+                Connect with cross-disciplinary students across USICT, Biotechnology, Management, and Engineering to form balanced hackathon squads.
+              </p>
+              <div id="team-matching-posts-wrap">
+                <!-- Populated by controllers.js -->
+              </div>
+            </div>
+
+            <!-- Lab Benches & Prototyping Facilities Access -->
+            <div class="student-widget-card">
+              <div class="widget-header">
+                <h4 class="widget-title"><i data-lucide="cpu" style="color: var(--accent);"></i> Confirmed Lab Bench Reservations</h4>
+                <button class="btn btn-outline-primary btn-sm" onclick="openModal('modal-book-lab')">
+                  <i data-lucide="plus"></i> New Reservation
+                </button>
+              </div>
+              <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">
+                Students enrolled in incubation initiatives receive free bench access to GBU fabrication labs and testing equipment.
+              </p>
+              <div id="student-lab-bookings">
+                <!-- Populated by controllers.js -->
+              </div>
+            </div>
+
+            <!-- Earned Verified Digital Credentials -->
+            <div class="student-widget-card">
+              <div class="widget-header">
+                <h4 class="widget-title"><i data-lucide="award" style="color: var(--warning);"></i> Verifiable Credentials & Certificates</h4>
+                <span class="badge badge-neutral">Tamper-Proof QR</span>
+              </div>
+              <div id="student-cert-list">
+                <!-- Populated by controllers.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Innovation Roadmap & Assigned Mentor Hours -->
+          <div>
+            <!-- Student Founder Milestone Roadmap -->
+            <div class="student-widget-card">
+              <div class="widget-header">
+                <h4 class="widget-title"><i data-lucide="milestone" style="color: var(--primary);"></i> Innovation Journey</h4>
+                <span class="badge badge-primary">Stage 3 of 5</span>
+              </div>
+              <div class="roadmap-timeline">
+                <div class="roadmap-item completed">
+                  <div class="roadmap-dot"><i data-lucide="check" style="width: 12px; height: 12px;"></i></div>
+                  <strong style="font-size: 0.88rem; color: var(--navy); display: block;">1. Ideation & Team Formation</strong>
+                  <span style="font-size: 0.75rem; color: var(--muted);">Team AeroVeda formed with 4 GBU students.</span>
+                </div>
+                <div class="roadmap-item completed">
+                  <div class="roadmap-dot"><i data-lucide="check" style="width: 12px; height: 12px;"></i></div>
+                  <strong style="font-size: 0.88rem; color: var(--navy); display: block;">2. Hackathon Sprint & Repo</strong>
+                  <span style="font-size: 0.75rem; color: var(--muted);">Completed GBU Innovation Grand Challenge milestone.</span>
+                </div>
+                <div class="roadmap-item active">
+                  <div class="roadmap-dot">3</div>
+                  <strong style="font-size: 0.88rem; color: var(--primary); display: block;">3. Lab Prototyping & Testing</strong>
+                  <span style="font-size: 0.75rem; color: var(--navy-light);">Telemetry drone tests in progress at Block S-16.</span>
+                </div>
+                <div class="roadmap-item">
+                  <div class="roadmap-dot">4</div>
+                  <strong style="font-size: 0.88rem; color: var(--navy); display: block;">4. Incubation Board Review</strong>
+                  <span style="font-size: 0.75rem; color: var(--muted);">Pitching for ₹5 Lakh seed prototype grant.</span>
+                </div>
+                <div class="roadmap-item">
+                  <div class="roadmap-dot">5</div>
+                  <strong style="font-size: 0.88rem; color: var(--navy); display: block;">5. Legal Incorporation & Allotment</strong>
+                  <span style="font-size: 0.75rem; color: var(--muted);">Physical startup resident at AIC-GBU.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mentor-in-Residence Card -->
+            <div class="student-widget-card">
+              <div class="widget-header">
+                <h4 class="widget-title"><i data-lucide="user-check" style="color: var(--success);"></i> Assigned Industry Mentor</h4>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                <img src="assets/img/team-3.jpg" alt="Mentor" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border);">
+                <div>
+                  <strong style="font-size: 0.95rem; color: var(--navy); display: block;">Er. Amitava Sen</strong>
+                  <span style="font-size: 0.78rem; color: var(--primary);">Principal AI Architect • Mentor-in-Residence</span>
+                </div>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem;">
+                Specialization in drone avionics, telemetry sensors, and embedded systems.
+              </p>
+              <button class="btn btn-outline-primary btn-sm" style="width: 100%;" onclick="openModal('modal-request-mentor')">
+                <i data-lucide="calendar"></i> Book Next 1-on-1 Office Hour
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Startup Activity Tracker in Student Portal -->
+        <div style="margin-top: 2.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.35rem; color: var(--navy);">Portfolio Company Progress Tracker</h3>
+            <button class="btn btn-outline-primary btn-sm" onclick="switchView('startups')">View Full Directory</button>
+          </div>
+          <div id="startup-tracker-wrap">
+            <!-- Populated by controllers.js V5 -->
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ======================================================================
+         VIEW 3: LABS & FABRICATION PORTAL (NEW!)
+         ====================================================================== -->
+    <section id="view-facilities" class="view-section">
+      <!-- Portal Top Banner -->
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-info">30,000+ Sq. Ft. R&D Infrastructure</span>
+              <span class="badge badge-success">Open for Student & Startup Reservation</span>
+            </div>
+            <h1 class="portal-title">Labs & Prototyping Facilities Portal</h1>
+            <p class="portal-subtitle">
+              Specialized fabrication laboratories, biotech analytical testing instruments, high-performance GPU compute clusters, and co-working spaces dedicated to student innovators.
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-accent" onclick="openModal('modal-book-lab')">
+              <i data-lucide="calendar-plus"></i> Reserve Lab Bench Slot
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        <div class="card-grid-2" id="facilities-card-grid">
+          <!-- Populated by controllers.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 4: GRANTS & SEED FUNDING LEDGER (NEW!)
+         ====================================================================== -->
+    <section id="view-funding" class="view-section">
+      <!-- Portal Top Banner -->
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-success">₹5.00 Cr Total Corpus Managed</span>
+              <span class="badge badge-neutral" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">Public Audit Transparency</span>
+            </div>
+            <h1 class="portal-title">Seed Grants & Funding Ledger</h1>
+            <p class="portal-subtitle">
+              Milestone-driven disbursement tracking for Uttar Pradesh StartInUP prototype grants, MSME innovation subsidies, and university seed funds.
+            </p>
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-outline" style="color: #FFF; border-color: rgba(255,255,255,0.4);" onclick="alert('Downloading Grant Utilization & Audit Ledger PDF...')">
+              <i data-lucide="download"></i> Download Audit Ledger
+            </button>
+            <button class="btn btn-accent" onclick="openApplicationWizard()">
+              <i data-lucide="banknote"></i> Apply for Seed Grant
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        <div class="table-wrapper">
+          <div class="table-header-bar">
+            <div>
+              <h4 style="font-size: 1.15rem; color: var(--navy);">Sanctioned Grants & Disbursement Ledgers</h4>
+              <p style="font-size: 0.8rem; color: var(--muted);">Audited milestone releases reconciled with bank PFMS ledger.</p>
+            </div>
+            <span class="badge badge-primary">Reconciled April 2027</span>
+          </div>
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Venture & Ref ID</th>
+                <th>Funding Scheme</th>
+                <th>Sanctioned Amount</th>
+                <th>Disbursed Till Date</th>
+                <th>Milestone Status</th>
+                <th>Verification</th>
+              </tr>
+            </thead>
+            <tbody id="funding-ledger-table-body">
+              <!-- Populated by controllers.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 5: HACKATHON MANAGEMENT PORTAL
+         ====================================================================== -->
+    <section id="view-hackathons" class="view-section">
+      <!-- Portal Top Banner -->
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-primary" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">Pillar 1: Flagship Competition Hub</span>
+              <span class="badge badge-success">Open National Registration</span>
+            </div>
+            <h1 class="portal-title">Hackathon Management Portal</h1>
+            <p class="portal-subtitle">
+              Manage the complete innovation challenge lifecycle: problem publishing, team formations, repository submissions, transparent rubric judging, and accredited certificates.
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-accent" onclick="startHackathonRegistration('hack-2027-1')">
+              <i data-lucide="plus-circle"></i> Register Team & Project
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portal Sub-Navigation Bar -->
+      <div class="portal-subnav">
+        <div class="container container-wide">
+          <ul class="portal-subnav-list">
+            <li class="portal-subnav-item active"><i data-lucide="list"></i> Active Challenges</li>
+            <li class="portal-subnav-item" onclick="document.getElementById('hackathon-submissions-table-body').scrollIntoView({behavior: 'smooth'})"><i data-lucide="clipboard-check"></i> Project Evaluation Pipeline</li>
+            <li class="portal-subnav-item" onclick="switchView('student')"><i data-lucide="graduation-cap"></i> Student Team Workspace</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        
+        <!-- Lifecycle Stage Progress Indicator -->
+        <div class="hackathon-stage-bar">
+          <div class="stage-step completed">
+            <div class="stage-num"><i data-lucide="check" style="width: 16px; height: 16px;"></i></div>
+            <div class="stage-info">
+              <h5>1. Challenge Publishing</h5>
+              <p>Themes & Rules Live</p>
+            </div>
+          </div>
+          <div class="stage-connector"></div>
+          <div class="stage-step active">
+            <div class="stage-num">2</div>
+            <div class="stage-info">
+              <h5>2. Team Registration</h5>
+              <p>Rosters & Track Selection</p>
+            </div>
+          </div>
+          <div class="stage-connector"></div>
+          <div class="stage-step">
+            <div class="stage-num">3</div>
+            <div class="stage-info">
+              <h5>3. Prototype Submission</h5>
+              <p>GitHub Repo & Video Links</p>
+            </div>
+          </div>
+          <div class="stage-connector"></div>
+          <div class="stage-step">
+            <div class="stage-num">4</div>
+            <div class="stage-info">
+              <h5>4. Rubric Judging</h5>
+              <p>Assigned Expert Panels</p>
+            </div>
+          </div>
+          <div class="stage-connector"></div>
+          <div class="stage-step">
+            <div class="stage-num">5</div>
+            <div class="stage-info">
+              <h5>5. Results & Incubation</h5>
+              <p>Certificates & Allotment</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Hackathons List -->
+        <div id="hackathons-list-wrap">
+          <!-- Populated by controllers.js -->
+        </div>
+
+        <!-- Judge & Participant Workspace Area -->
+        <div style="margin-top: 3.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <div>
+              <h3 style="font-size: 1.5rem; color: var(--navy);">Submitted Team Projects & Evaluation Pipeline</h3>
+              <p style="font-size: 0.9rem; color: var(--muted);">Click 'Evaluate' to test the interactive 4-criterion judging rubric or generate certificates.</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <span class="badge badge-info">Multi-role Simulation Active</span>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Team & Contact</th>
+                  <th>Project & Track</th>
+                  <th>Evaluation Score</th>
+                  <th>Submission Timestamp</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="hackathon-submissions-table-body">
+                <!-- Populated by controllers.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 6: EVENTS & ATTENDANCE MANAGEMENT PORTAL
+         ====================================================================== -->
+    <section id="view-events" class="view-section">
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-accent">Pillar 2: Programs & Attendance System</span>
+              <span class="badge badge-neutral" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">Campus & Hybrid Conclaves</span>
+            </div>
+            <h1 class="portal-title">Events & Programs Portal</h1>
+            <p class="portal-subtitle">
+              Discover upcoming technical workshops and entrepreneurship masterclasses. Instant RSVP with unique digital QR passes for lightning-fast entrance check-ins.
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-outline" style="color: #FFF; border-color: rgba(255,255,255,0.4);" onclick="simulateQRScan()">
+              <i data-lucide="scan-line"></i> Simulate Door QR Scanner
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        
+        <!-- Events Grid -->
+        <div class="card-grid-3" id="events-card-grid">
+          <!-- Populated by controllers.js -->
+        </div>
+
+        <!-- Live Attendee Management Console -->
+        <div style="margin-top: 3.5rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <div>
+              <h3 style="font-size: 1.5rem; color: var(--navy);">Live Event Roster & Check-In Console</h3>
+              <p style="font-size: 0.9rem; color: var(--muted);">Scan attendees using QR codes or toggle check-in directly.</p>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>Attendee Name & Email</th>
+                  <th>Institution</th>
+                  <th>Registration Pass ID</th>
+                  <th>Check-In Status</th>
+                  <th>Management Actions</th>
+                </tr>
+              </thead>
+              <tbody id="event-attendees-table-body">
+                <!-- Populated by controllers.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 7: STARTUP PORTFOLIO & INCUBATION INTAKE
+         ====================================================================== -->
+    <section id="view-startups" class="view-section">
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-success">Pillar 4: Ventures & Acceleration</span>
+              <span class="badge badge-neutral" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">UP Startup Mission Recognized</span>
+            </div>
+            <h1 class="portal-title">Startup & Incubation Portal</h1>
+            <p class="portal-subtitle">
+              Explore deeptech, agritech, healthcare, and sustainability startups backed by AIC-GBU with co-working spaces, seed funding, and corporate networks.
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-accent" onclick="openApplicationWizard()">
+              <i data-lucide="send"></i> Apply for Incubation Allotment
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        
+        <!-- Filter bar -->
+        <div class="tabs-nav" style="justify-content: flex-start;">
+          <button class="tab-btn active">All Ventures (6)</button>
+          <button class="tab-btn">AgriTech & BioSolutions</button>
+          <button class="tab-btn">Healthcare & Robotics</button>
+          <button class="tab-btn">CleanTech & Energy</button>
+          <button class="tab-btn">EdTech & Vernacular</button>
+        </div>
+
+        <!-- Startups Grid -->
+        <div class="card-grid-3" id="startups-grid-wrap">
+          <!-- Populated by controllers.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 8: OFFICIAL NEWS, CIRCULARS & NOTICES
+         ====================================================================== -->
+    <section id="view-news" class="view-section">
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-purple" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">Pillar 3: Official Communications</span>
+              <span class="badge badge-info">Verified Media Desk</span>
+            </div>
+            <h1 class="portal-title">News, Circulars & Media Portal</h1>
+            <p class="portal-subtitle">
+              Verified press releases, institutional MoUs, government grant announcements, circulars, and founder milestone reports.
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-accent" onclick="openModal('modal-publish-article')">
+              <i data-lucide="edit-3"></i> Draft & Publish Notice
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+        <div class="card-grid-3" id="news-card-grid">
+          <!-- Populated by controllers.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         VIEW 9: UNIFIED ADMIN & IMPACT DASHBOARD (PILLAR 5)
+         ====================================================================== -->
+    <section id="view-admin" class="view-section">
+      <div class="portal-banner">
+        <div class="container container-wide portal-banner-content">
+          <div>
+            <div class="portal-badge-strip">
+              <span class="badge badge-warning">Pillar 5: Executive Management</span>
+              <span class="badge badge-neutral" style="background: rgba(255,255,255,0.15); color: #FFF; border-color: transparent;">Role-Based Access Control</span>
+            </div>
+            <h1 class="portal-title">Unified Admin & Impact Dashboard</h1>
+            <p class="portal-subtitle">
+              Centralized operational cockpit for application evaluation, hackathon judging approvals, facility scheduling, and NAAC/NIRF innovation reporting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container container-wide" style="padding-top: 2rem; padding-bottom: 4rem;">
+        
+        <div class="admin-shell">
+          <!-- Sidebar -->
+          <aside class="admin-sidebar">
+            <div class="admin-brand">
+              <h4 style="color: #FFFFFF; font-size: 1.15rem;">Admin Control</h4>
+              <p style="color: #94A3B8; font-size: 0.75rem;">AIC-GBU Operational Console</p>
+            </div>
+
+            <ul class="admin-nav">
+              <li class="admin-nav-item active" data-admin-tab="admin-overview" onclick="switchAdminTab('admin-overview')">
+                <i data-lucide="layout-dashboard"></i> Executive Overview
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-hackathons" onclick="switchAdminTab('admin-hackathons')">
+                <i data-lucide="terminal"></i> Hackathons Control
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-events" onclick="switchAdminTab('admin-events')">
+                <i data-lucide="calendar"></i> Events & Attendance
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-applications" onclick="switchAdminTab('admin-applications')">
+                <i data-lucide="file-check"></i> Incubation Review
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-facilities" onclick="switchAdminTab('admin-facilities')">
+                <i data-lucide="cpu"></i> Lab Bench Approvals
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-grants" onclick="switchAdminTab('admin-grants')">
+                <i data-lucide="banknote"></i> Seed Grants & Tranches
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-audit" onclick="switchAdminTab('admin-audit')">
+                <i data-lucide="shield-alert"></i> Audit Trail & Logs
+              </li>
+              <li class="admin-nav-item" data-admin-tab="admin-nirf" onclick="switchAdminTab('admin-nirf')">
+                <i data-lucide="award"></i> NIRF / NAAC Export
+              </li>
+            </ul>
+
+            <div style="padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-md); font-size: 0.75rem; color: #94A3B8;">
+              Logged as: <strong style="color: #FFFFFF;" id="current-role-badge">ADMIN</strong>
+              <div style="margin-top: 4px;">Session: ISO/IEC 27001 Secure</div>
+            </div>
+          </aside>
+
+          <!-- Main Content Pane -->
+          <div class="admin-main">
+            <div class="admin-topbar">
+              <div>
+                <h3 id="admin-topbar-title" style="font-size: 1.25rem;">Executive Overview & Live Telemetry</h3>
+                <span id="admin-topbar-subtitle" style="font-size: 0.78rem; color: var(--muted);">Cross-functional incubation metrics and system health</span>
+              </div>
+              <div style="display: flex; gap: 0.75rem;">
+                <button class="btn btn-outline btn-sm" onclick="alert('Exporting verified incubation database in encrypted CSV...')">
+                  <i data-lucide="file-spreadsheet"></i> Export CSV
+                </button>
+                <button class="btn btn-primary btn-sm" onclick="openApplicationWizard()">
+                  <i data-lucide="plus"></i> Add Incubatee
+                </button>
+              </div>
+            </div>
+
+            <div class="admin-view-content">
+
+              <!-- TAB 1: EXECUTIVE OVERVIEW -->
+              <div id="admin-overview" class="admin-tab-pane active">
+                <!-- KPI Cards -->
+                <div class="kpi-row">
+                  <div class="kpi-card">
+                    <div class="kpi-title">Active Startups</div>
+                    <div class="kpi-val" id="kpi-startups-count">54</div>
+                    <div class="kpi-trend"><i data-lucide="trending-up" style="width: 14px; height: 14px;"></i> +18% Year-on-Year</div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-title">Pending Applications</div>
+                    <div class="kpi-val" id="kpi-apps-count">3</div>
+                    <div class="kpi-trend"><i data-lucide="clock" style="width: 14px; height: 14px;"></i> Active Review Stage</div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-title">Hackathon Prototypes</div>
+                    <div class="kpi-val" id="kpi-hack-teams-count">3</div>
+                    <div class="kpi-trend"><i data-lucide="code" style="width: 14px; height: 14px;"></i> 100% Repos Verified</div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-title">Funds Facilitated</div>
+                    <div class="kpi-val" id="kpi-funds-count">₹14.8 Cr</div>
+                    <div class="kpi-trend"><i data-lucide="check-circle" style="width: 14px; height: 14px;"></i> Seed & Pre-Series A</div>
+                  </div>
+                </div>
+
+                <!-- Quick Management Cards -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                  <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                      <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(15,61,62,0.1); color: var(--primary); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="terminal"></i>
+                      </div>
+                      <h4 style="font-size: 1.05rem;">Hackathons Desk</h4>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Launch challenges, set judging rubrics, manage tracks and review prototype repos.</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <button class="btn btn-outline-primary btn-sm" onclick="switchAdminTab('admin-hackathons')">Manage Competitions</button>
+                      <button class="btn btn-primary btn-sm" onclick="openModal('modal-create-hackathon')"><i data-lucide="plus"></i> New</button>
+                    </div>
+                  </div>
+
+                  <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                      <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(226,114,91,0.1); color: var(--accent); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="calendar"></i>
+                      </div>
+                      <h4 style="font-size: 1.05rem;">Events & Masterclasses</h4>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Schedule entrepreneurship workshops, expand seat quotas, and verify QR attendance.</p>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <button class="btn btn-outline-primary btn-sm" onclick="switchAdminTab('admin-events')">View Event Roster</button>
+                      <button class="btn btn-primary btn-sm" onclick="openModal('modal-create-event')"><i data-lucide="plus"></i> Schedule</button>
+                    </div>
+                  </div>
+
+                  <div style="background: var(--bg-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                      <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(46,125,50,0.1); color: var(--success); display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="banknote"></i>
+                      </div>
+                      <h4 style="font-size: 1.05rem;">Grants & Seed Ledger</h4>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Release milestone tranches for NIDHI-PRAYAS, SISFS, and UP Startup Policy funds.</p>
+                    <button class="btn btn-outline-primary btn-sm" onclick="switchAdminTab('admin-grants')">Open Grant Ledger</button>
+                  </div>
+                </div>
+
+                <!-- Application Queue Table in Overview -->
+                <div class="table-wrapper">
+                  <div class="table-header-bar">
+                    <h4 style="font-size: 1.05rem;">Pending Incubation Intake Queue</h4>
+                    <span class="badge badge-primary">Requires Board Approval</span>
+                  </div>
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Venture & Sector</th>
+                        <th>Primary Founder</th>
+                        <th>Declared Stage</th>
+                        <th>Current Status</th>
+                        <th>Rubric Score</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-applications-table-body">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TAB 2: HACKATHONS & CHALLENGES CONTROL -->
+              <div id="admin-hackathons" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">Competition & Sprint Management</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">Publish new challenges, lock submissions, and oversee multi-track judging rubrics.</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="openModal('modal-create-hackathon')">
+                    <i data-lucide="plus-circle"></i> Create New Hackathon
+                  </button>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Competition Title & Venue</th>
+                        <th>Status</th>
+                        <th>Registered Teams</th>
+                        <th>Prize Pool</th>
+                        <th>Deadline</th>
+                        <th>Administrative Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-hackathons-table-body">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TAB 3: EVENTS & ATTENDANCE MANAGEMENT -->
+              <div id="admin-events" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">Programs, Workshops & Masterclasses</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">Oversee capacity quotas, attendee verification passes, and live entrance check-ins.</span>
+                  </div>
+                  <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn btn-outline-primary btn-sm" onclick="simulateQRScan()">
+                      <i data-lucide="scan-line"></i> Simulate Door Scanner
+                    </button>
+                    <button class="btn btn-primary btn-sm" onclick="openModal('modal-create-event')">
+                      <i data-lucide="calendar-plus"></i> Schedule New Event
+                    </button>
+                  </div>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Event Title & Category</th>
+                        <th>Scheduled Date</th>
+                        <th>Seat Quota (Booked / Cap)</th>
+                        <th>Registration Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-events-table-body">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TAB 4: INCUBATION REVIEW BOARD -->
+              <div id="admin-applications" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">Full Incubation Application Dossier</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">Formal evaluation board reviews, pitch deck access, and allotment decisions.</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="openApplicationWizard()">
+                    <i data-lucide="plus"></i> Direct Intake Form
+                  </button>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Venture & Sector</th>
+                        <th>Primary Founder</th>
+                        <th>Declared Stage</th>
+                        <th>Current Status</th>
+                        <th>Rubric Score</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-applications-table-body-full">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Kanban Pipeline View -->
+              <div style="margin-top: 2rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+                  <h4 style="font-size: 1.05rem; color: var(--navy);">Application Pipeline — Kanban Board View</h4>
+                  <button class="btn btn-outline btn-sm" onclick="renderApplicationKanban()">
+                    <i data-lucide="refresh-cw"></i> Refresh Board
+                  </button>
+                </div>
+                <div id="admin-kanban-wrap">
+                  <!-- Populated by renderApplicationKanban() -->
+                </div>
+              </div>
+              </div>
+
+              <!-- TAB 5: LAB BENCHES & APPROVALS -->
+              <div id="admin-facilities" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">Prototyping Facility Reservations</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">Approve specialized equipment slots, 3D printing batches, and IoT telemetry benches.</span>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="switchView('facilities')">
+                    <i data-lucide="external-link"></i> Public Labs Catalog
+                  </button>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Laboratory Facility</th>
+                        <th>Allotted Bench / Tool</th>
+                        <th>Time Window</th>
+                        <th>Student / Team</th>
+                        <th>Status</th>
+                        <th>Approval Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-facilities-table-body">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TAB 6: SEED GRANTS & TRANCHES -->
+              <div id="admin-grants" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">Startup Grant Disbursement Ledger</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">NIDHI PRAYAS, SISFS, and UP StartInUP government tranche authorizations.</span>
+                  </div>
+                  <button class="btn btn-outline btn-sm" onclick="alert('Exporting utilization certificates for Ministry of Electronics & IT...')">
+                    <i data-lucide="file-check"></i> Export UC Ledger
+                  </button>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Venture & Sanction ID</th>
+                        <th>Grant Scheme</th>
+                        <th>Sanctioned Amount</th>
+                        <th>Disbursed Total</th>
+                        <th>Milestone Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-grants-table-body">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TAB 7: AUDIT TRAIL & LOGS -->
+              <div id="admin-audit" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">Security & Operational Audit Log</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">Tamper-evident ISO/IEC 27001 event trail of all administrative decisions.</span>
+                  </div>
+                  <span class="badge badge-success"><i data-lucide="shield-check" style="width: 14px; height: 14px;"></i> Audit Stream Live</span>
+                </div>
+
+                <div class="table-wrapper">
+                  <table class="custom-table">
+                    <thead>
+                      <tr>
+                        <th>Timestamp (IST)</th>
+                        <th>Actor</th>
+                        <th>Action Code</th>
+                        <th>Details & State Modification</th>
+                      </tr>
+                    </thead>
+                    <tbody id="admin-audit-table-body">
+                      <!-- Populated by controllers.js -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- TAB 8: NIRF / NAAC ACCREDITATION DESK -->
+              <div id="admin-nirf" class="admin-tab-pane">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                  <div>
+                    <h4 style="font-size: 1.15rem; color: var(--navy); margin-bottom: 2px;">NIRF / NAAC Criterion 3: Innovation & Incubation Compliance</h4>
+                    <span style="font-size: 0.82rem; color: var(--muted);">Instant export of audited parameters for National Institutional Ranking Framework.</span>
+                  </div>
+                  <button class="btn btn-primary btn-sm" onclick="alert('Exporting Criterion 3.3.2 Incubation Ecosystem dossier in NAAC format...')">
+                    <i data-lucide="download"></i> Download NAAC Dossier
+                  </button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--muted); font-weight: 700;">Metric 3.3.1</span>
+                    <h4 style="font-size: 1.1rem; margin: 0.25rem 0 0.5rem; color: var(--navy);">Ecosystem for Innovations</h4>
+                    <p style="font-size: 0.85rem; color: var(--navy-light); margin-bottom: 1rem;">AIC-GBU registered 30,000+ sq.ft space, 6 specialized labs, and Atal Innovation Mission support.</p>
+                    <span class="badge badge-success">Verified: Score 4.0 / 4.0</span>
+                  </div>
+
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--muted); font-weight: 700;">Metric 3.3.2</span>
+                    <h4 style="font-size: 1.1rem; margin: 0.25rem 0 0.5rem; color: var(--navy);">Number of Startups Incubated</h4>
+                    <p style="font-size: 0.85rem; color: var(--navy-light); margin-bottom: 1rem;">54 active registered startups + 100+ ideation stage ventures across UP and Delhi NCR.</p>
+                    <span class="badge badge-success">Verified: 54 Companies</span>
+                  </div>
+
+                  <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--muted); font-weight: 700;">Metric 3.3.3</span>
+                    <h4 style="font-size: 1.1rem; margin: 0.25rem 0 0.5rem; color: var(--navy);">IPR, Patents & Grants</h4>
+                    <p style="font-size: 0.85rem; color: var(--navy-light); margin-bottom: 1rem;">38 registered patents, 12 trademarks, and ₹14.8 Crores in mobilized seed funds.</p>
+                    <span class="badge badge-success">Verified: 38 Patents Filed</span>
+                  </div>
+                </div>
+
+                <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                  <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem;">One-Click Accreditation Bundle Generator</h4>
+                  <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Generates digitally signed PDF/CSV reports formatted per latest AICTE, NIRF, and NAAC guidelines.</p>
+                  <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                    <button class="btn btn-outline" onclick="alert('Generated NIRF Innovation Ledger (2026-2027) with 54 startup records.')"><i data-lucide="file-spreadsheet"></i> NIRF Innovation Ledger</button>
+                    <button class="btn btn-outline" onclick="alert('Generated NAAC Metric 3.3.2 Signed Summary with VC approval reference.')"><i data-lucide="file-text"></i> NAAC 3.3.2 Portfolio</button>
+                    <button class="btn btn-outline" onclick="alert('Generated ARIIA Top Institution Data Return.')"><i data-lucide="check-circle"></i> ARIIA Data Matrix</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+       
+  <!-- MODAL: POST TEAMMATE REQUIREMENT -->
+  <div class="modal-overlay" id="modal-post-team-match">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Post Teammate Requirement</h3>
+          <p>Find student co-founders across GBU schools</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-post-team-match')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handlePostTeamMatch(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Target Hackathon / Challenge *</label>
+            <select class="form-select" id="post-match-hackathon">
+              <option value="GBU Innovation Grand Challenge 2027">GBU Innovation Grand Challenge 2027</option>
+              <option value="UP AgriTech & Food Innovation Sprint">UP AgriTech & Food Innovation Sprint</option>
+              <option value="Independent Startup Pre-Incubation">Independent Startup Pre-Incubation</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Project Concept Summary *</label>
+            <textarea class="form-textarea" id="post-match-concept" required placeholder="Describe what you are building..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Skillsets / Roles Needed *</label>
+            <input type="text" class="form-input" id="post-match-looking" required placeholder="e.g. React Frontend, IoT Firmware developer, Business Modeler">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your Current Skills (comma separated) *</label>
+            <input type="text" class="form-input" id="post-match-skills" required placeholder="Python, Computer Vision, CAD SolidWorks">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-post-team-match')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="send"></i> Post to Match Board</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: HACKATHON REGISTRATION WIZARD -->
+  <div class="modal-overlay" id="modal-hackathon-register">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Register for Hackathon</h3>
+          <p id="modal-hackathon-name">GBU Innovation Grand Challenge</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-hackathon-register')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleHackathonRegistration(event)">
+        <input type="hidden" id="hackathon-id-input" value="hack-2027-1">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Team Name *</label>
+              <input type="text" class="form-input" id="hack-team-name" required placeholder="e.g. BioVolt Innovations">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Competition Track *</label>
+              <select class="form-select" id="hack-track" required>
+                <option value="Artificial Intelligence & DeepTech">Artificial Intelligence & DeepTech</option>
+                <option value="Smart Agriculture & Food Processing">Smart Agriculture & Food Processing</option>
+                <option value="CleanTech & Drone Mobility">CleanTech & Drone Mobility</option>
+                <option value="Healthcare & Biotech">Healthcare & Biotech</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Team Leader Name *</label>
+              <input type="text" class="form-input" id="hack-lead-name" required placeholder="Full Name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Leader Email Address *</label>
+              <input type="email" class="form-input" id="hack-lead-email" required placeholder="student@gbu.ac.in">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Project Title & Solution Summary *</label>
+            <input type="text" class="form-input" id="hack-project-title" required placeholder="e.g. Low-cost Micro-grid Smart Inverter">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">GitHub Repository / Source Code URL</label>
+              <input type="url" class="form-input" id="hack-repo-url" placeholder="https://github.com/...">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Live Prototype Demo URL (Optional)</label>
+              <input type="url" class="form-input" id="hack-demo-url" placeholder="https://demo...">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-hackathon-register')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="check"></i> Submit Team Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: INTERACTIVE JUDGE RUBRIC EVALUATION -->
+  <div class="modal-overlay" id="modal-judge-rubric">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Judge Scoring & Rubric Evaluation</h3>
+          <p id="rubric-team-title">Team AeroVeda — Autonomous Drone Telemetry</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+          <span class="badge badge-primary" style="font-size: 0.95rem;" id="rubric-total-score-badge">75/100</span>
+          <button class="modal-close-btn" onclick="closeModal('modal-judge-rubric')">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <input type="hidden" id="rubric-sub-id" value="">
+      <div class="modal-body">
+        
+        <div class="rubric-box">
+          <div class="rubric-criterion">
+            <div class="rubric-header">
+              <div>
+                <div class="rubric-title">1. Problem Statement & Impact Relevancy</div>
+                <div class="rubric-weight">Clarity of real-world need, targeted beneficiaries and market significance.</div>
+              </div>
+              <div class="rubric-score-display" id="score-crit-1">15/20</div>
+            </div>
+            <div class="rubric-slider-wrap">
+              <input type="range" class="rubric-slider" id="rubric-crit-1" min="0" max="20" value="15" oninput="updateRubricValue('crit-1', 20)">
+            </div>
+          </div>
+
+          <div class="rubric-criterion">
+            <div class="rubric-header">
+              <div>
+                <div class="rubric-title">2. Innovation & Technical Feasibility</div>
+                <div class="rubric-weight">Originality of approach, engineering design, algorithms and hardware architecture.</div>
+              </div>
+              <div class="rubric-score-display" id="score-crit-2">24/30</div>
+            </div>
+            <div class="rubric-slider-wrap">
+              <input type="range" class="rubric-slider" id="rubric-crit-2" min="0" max="30" value="24" oninput="updateRubricValue('crit-2', 30)">
+            </div>
+          </div>
+
+          <div class="rubric-criterion">
+            <div class="rubric-header">
+              <div>
+                <div class="rubric-title">3. Prototype Quality & Working Code</div>
+                <div class="rubric-weight">Demonstrated functionality, clean repo structure, responsiveness and edge execution.</div>
+              </div>
+              <div class="rubric-score-display" id="score-crit-3">22/30</div>
+            </div>
+            <div class="rubric-slider-wrap">
+              <input type="range" class="rubric-slider" id="rubric-crit-3" min="0" max="30" value="22" oninput="updateRubricValue('crit-3', 30)">
+            </div>
+          </div>
+
+          <div class="rubric-criterion">
+            <div class="rubric-header">
+              <div>
+                <div class="rubric-title">4. Commercial Viability & Incubation Readiness</div>
+                <div class="rubric-weight">Pathway to deployment, manufacturing feasibility and suitability for AIC-GBU space.</div>
+              </div>
+              <div class="rubric-score-display" id="score-crit-4">16/20</div>
+            </div>
+            <div class="rubric-slider-wrap">
+              <input type="range" class="rubric-slider" id="rubric-crit-4" min="0" max="20" value="16" oninput="updateRubricValue('crit-4', 20)">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Judge Confidential Feedback & Deliberation Notes</label>
+          <textarea class="form-textarea" id="rubric-comments" placeholder="Highlight technical strengths or potential lab testing recommendations..."></textarea>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" onclick="closeModal('modal-judge-rubric')">Discard</button>
+        <button type="button" class="btn btn-primary" onclick="saveJudgeEvaluation()">
+          <i data-lucide="check-circle-2"></i> Lock & Finalize Evaluation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DIGITAL CERTIFICATE PREVIEW & VERIFICATION -->
+  <div class="modal-overlay" id="modal-certificate-preview">
+    <div class="modal-dialog" style="max-width: 820px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Digital Credential & Verification</h3>
+          <p>Cryptographically verifiable certificate issued by GBURIF</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-certificate-preview')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" style="background: #F8FAFC; padding: 2.5rem;">
+        <div style="background: #FFFFFF; border: 8px solid #0F3D3E; padding: 3rem 2.5rem; border-radius: 8px; box-shadow: var(--shadow-lg); text-align: center; position: relative;">
+          
+          <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <img src="assets/img/gbu_logo_header.png" alt="GBU Logo" style="height: 60px;">
+          </div>
+
+          <div style="font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem;">
+            Gautam Buddha University Research and Innovation Foundation
+          </div>
+          
+          <h2 style="font-size: 2.4rem; color: var(--primary); font-family: var(--font-serif); margin-bottom: 1.25rem;">
+            Certificate of Innovation Excellence
+          </h2>
+
+          <p style="font-size: 1rem; color: var(--navy-light); margin-bottom: 1.5rem;">
+            This is proudly conferred upon
+          </p>
+
+          <h3 id="cert-recipient" style="font-size: 2rem; color: var(--navy); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 4px; margin-bottom: 1.25rem;">
+            Aryan Sharma
+          </h3>
+
+          <p style="font-size: 1rem; color: var(--navy-light); max-width: 580px; margin: 0 auto 2rem;">
+            Representing <strong id="cert-team">Team AeroVeda</strong> for successfully presenting the project <strong id="cert-project">Autonomous Drone Telemetry</strong> at the GBU Innovation Challenge.
+          </p>
+
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-top: 2rem; border-top: 1px solid var(--border);">
+            <div style="text-align: left;">
+              <div id="cert-qr-container"></div>
+              <div style="font-size: 0.72rem; color: var(--muted); margin-top: 4px;">Scan to Verify Online</div>
+            </div>
+
+            <div style="text-align: center;">
+              <span class="badge badge-neutral" id="cert-id-badge" style="font-size: 0.8rem;">GBU-CERT-2027-8821</span>
+              <div style="font-size: 0.75rem; color: var(--muted); margin-top: 4px;">Issued: <span id="cert-date">April 2027</span></div>
+            </div>
+
+            <div style="text-align: right;">
+              <div style="font-weight: 700; color: var(--navy); font-size: 0.95rem;">Prof. R.K. Sinha</div>
+              <div style="font-size: 0.75rem; color: var(--muted);">Director, GBURIF / Vice Chancellor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeModal('modal-certificate-preview')">Close</button>
+        <button class="btn btn-primary" onclick="printCertificate()"><i data-lucide="printer"></i> Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: EVENT RESERVATION -->
+  <div class="modal-overlay" id="modal-event-register">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Reserve Event Pass</h3>
+          <p id="modal-event-name">Event Title</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-event-register')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleEventRegistration(event)">
+        <input type="hidden" id="event-id-input" value="evt-301">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" id="evt-reg-name" required placeholder="Your full name">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" class="form-input" id="evt-reg-email" required placeholder="name@domain.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Institution / Organization *</label>
+              <input type="text" class="form-input" id="evt-reg-inst" required placeholder="GBU / Company name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Delegate Category *</label>
+            <select class="form-select" id="evt-reg-type">
+              <option value="Student Innovator">Student Innovator</option>
+              <option value="Startup Founder">Startup Founder</option>
+              <option value="Faculty / Researcher">Faculty / Researcher</option>
+              <option value="Angel Investor / Industry">Angel Investor / Industry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-event-register')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="check"></i> Confirm Reservation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: DIGITAL QR PASS -->
+  <div class="modal-overlay" id="modal-qr-pass">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Digital Event Pass</h3>
+          <p>Scan at Entrance Check-in</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-qr-pass')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="qr-pass-card">
+          <span class="badge badge-primary" id="qr-modal-type">Student Delegate</span>
+          <h4 id="qr-modal-user" style="font-size: 1.3rem; margin: 0.5rem 0 0.2rem; color: var(--navy);">Aryan Sharma</h4>
+          <p id="qr-modal-inst" style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Gautam Buddha University</p>
+
+          <div class="qr-code-box">
+            <div id="qr-canvas-box"></div>
+          </div>
+
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;" id="qr-modal-regid">
+            EVT-REG-8821
+          </div>
+          <div style="font-size: 0.78rem; color: var(--muted);" id="qr-modal-event">
+            GBU Annual Startup Conclave 2027
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: center;">
+        <button class="btn btn-outline" onclick="closeModal('modal-qr-pass')">Close Pass</button>
+        <button class="btn btn-primary" onclick="window.print()"><i data-lucide="download"></i> Save Pass</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: INCUBATION APPLICATION WIZARD -->
+  <div class="modal-overlay" id="modal-incubation-wizard">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Apply for Startup Incubation</h3>
+          <p>GBURIF 12-Month Cohort Intake</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-incubation-wizard')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="wizard-steps-indicator">
+          <div class="wizard-step-node active" id="wiz-step-node-1">
+            <div class="wizard-node-circle">1</div>
+            <span>Founder & Venture</span>
+          </div>
+          <div class="wizard-step-node" id="wiz-step-node-2">
+            <div class="wizard-node-circle">2</div>
+            <span>Tech & Market</span>
+          </div>
+          <div class="wizard-step-node" id="wiz-step-node-3">
+            <div class="wizard-node-circle">3</div>
+            <span>Facility Requirements</span>
+          </div>
+        </div>
+
+        <div id="wiz-pane-1">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Startup / Proposed Venture Name *</label>
+              <input type="text" class="form-input" id="app-venture-name" required placeholder="e.g. NovaPulse Energy">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Primary Sector *</label>
+              <select class="form-select" id="app-sector">
+                <option value="Artificial Intelligence & Software">Artificial Intelligence & Software</option>
+                <option value="Biotechnology & Healthcare">Biotechnology & Healthcare</option>
+                <option value="CleanTech & Energy">CleanTech & Energy</option>
+                <option value="Drone & Hardware Mobility">Drone & Hardware Mobility</option>
+                <option value="AgriTech & Food Technology">AgriTech & Food Technology</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Lead Founder Full Name *</label>
+              <input type="text" class="form-input" id="app-founder-name" required placeholder="Full Name">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Contact Email *</label>
+              <input type="email" class="form-input" id="app-email" required placeholder="founder@venture.com">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Contact Phone / WhatsApp *</label>
+            <input type="tel" class="form-input" id="app-phone" required placeholder="+91 98765 43210">
+          </div>
+        </div>
+
+        <div id="wiz-pane-2" style="display: none;">
+          <div class="form-group">
+            <label class="form-label">Maturity Stage *</label>
+            <select class="form-select" id="app-stage">
+              <option value="Ideation / Concept">Ideation / Concept</option>
+              <option value="Lab Prototype Ready">Lab Prototype Ready</option>
+              <option value="Piloting with Early Users">Piloting with Early Users</option>
+              <option value="Early Revenue Generating">Early Revenue Generating</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Problem Statement & Technological Innovation *</label>
+            <textarea class="form-textarea" placeholder="Describe the acute pain point and how your solution creates a unique competitive moat..."></textarea>
+          </div>
+
+          <div class="file-dropzone" onclick="alert('Pitch Deck uploaded (simulated)')">
+            <i data-lucide="upload-cloud" style="width: 32px; height: 32px; color: var(--primary); margin-bottom: 0.5rem;"></i>
+            <div style="font-weight: 600; font-size: 0.9rem; color: var(--navy);">Click to upload Pitch Deck (PDF / PPTX)</div>
+            <div class="form-hint">Max file size 25MB • Up to 20 slides</div>
+          </div>
+        </div>
+
+        <div id="wiz-pane-3" style="display: none;">
+          <div class="form-group">
+            <label class="form-label">Incubation Support Requested from AIC-GBU *</label>
+            <input type="text" class="form-input" id="app-support" placeholder="e.g. 4 Co-working seats, Chemical Testing Lab, MSME Seed Grant">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Do you require physical lab benches or virtual mentorship?</label>
+            <select class="form-select">
+              <option value="Physical Resident Incubation (Greater Noida Campus)">Physical Resident Incubation (Greater Noida Campus)</option>
+              <option value="Virtual Incubation">Virtual Incubation</option>
+            </select>
+          </div>
+
+          <div style="padding: 1rem; background: var(--primary-surface); border-radius: var(--radius-md); font-size: 0.82rem; color: var(--primary); border: 1px solid rgba(15, 61, 62, 0.15);">
+            <i data-lucide="shield" style="width: 16px; height: 16px; vertical-align: middle;"></i>
+            All submissions are strictly protected under institutional non-disclosure protocol and reviewed by designated GBURIF council members.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="wiz-prev-btn" onclick="prevWizardStep()" style="display: none;">
+          <i data-lucide="arrow-left"></i> Previous
+        </button>
+        <button type="button" class="btn btn-primary" id="wiz-next-btn" onclick="nextWizardStep()">
+          Proceed to Next Step <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: NEWS PUBLISHER -->
+  <div class="modal-overlay" id="modal-publish-article">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Editorial CMS: Publish Notice / Press Release</h3>
+          <p>Authorized editorial workflow with instant archive scheduling</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-publish-article')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handlePublishArticle(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Notice Headline *</label>
+            <input type="text" class="form-input" id="article-title-input" required placeholder="e.g. Call for Mentors in ClimateTech">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Category *</label>
+            <select class="form-select" id="article-cat-select">
+              <option value="Official Notice">Official Notice</option>
+              <option value="Startup Success Story">Startup Success Story</option>
+              <option value="Program Announcement">Program Announcement</option>
+              <option value="Press Release">Press Release</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Announcement Content *</label>
+            <textarea class="form-textarea" id="article-content-input" required style="min-height: 140px;" placeholder="Full text of circular or press release..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-publish-article')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="check"></i> Authorize & Publish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: LAB BENCH BOOKING -->
+  <div class="modal-overlay" id="modal-book-lab">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Book Prototyping Lab Bench</h3>
+          <p>AIC-GBU Dedicated Incubation Facilities</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-book-lab')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleBookLabSlot(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Select Facility / Specialized Laboratory *</label>
+            <select class="form-select" id="book-lab-name">
+              <option value="IoT, Drone & Embedded Systems Lab">IoT, Drone & Embedded Systems Lab (Block S-16)</option>
+              <option value="Advanced Biotechnology & Analytical Testing Lab">Advanced Biotechnology & Analytical Testing Lab</option>
+              <option value="Rapid Prototyping & 3D Fabrication Centre">Rapid Prototyping & 3D Fabrication Centre</option>
+              <option value="High-Performance AI & Deep Learning Cluster">High-Performance AI & Deep Learning Cluster</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Date & Time Slot *</label>
+            <select class="form-select" id="book-lab-slot">
+              <option value="Tomorrow (10:00 AM - 01:00 PM)">Tomorrow (10:00 AM - 01:00 PM)</option>
+              <option value="Tomorrow (02:00 PM - 05:00 PM)">Tomorrow (02:00 PM - 05:00 PM)</option>
+              <option value="Friday (10:00 AM - 01:00 PM)">Friday (10:00 AM - 01:00 PM)</option>
+              <option value="Saturday (Weekend Sprint 11:00 AM - 04:00 PM)">Saturday (Weekend Sprint 11:00 AM - 04:00 PM)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Objective of Bench Usage *</label>
+            <textarea class="form-textarea" id="book-lab-reason" required placeholder="e.g. Calibrating optical flow sensors and edge AI camera board for drone telemetry project..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-book-lab')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="check"></i> Confirm Reservation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: REQUEST MENTOR -->
+  <div class="modal-overlay" id="modal-request-mentor">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Request Mentor 1-on-1 Office Hour</h3>
+          <p>MAARG Aligned Incubation Mentoring Desk</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-request-mentor')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleMentorRequest(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Select Mentor *</label>
+            <select class="form-select" id="req-mentor-name">
+              <option value="Er. Amitava Sen (AI & Avionics Architect)">Er. Amitava Sen (AI & Avionics Architect)</option>
+              <option value="Dr. Bhupendra Kumar (Dean, Biotech & IP)">Dr. Bhupendra Kumar (Dean, Biotech & IP)</option>
+              <option value="Ms. Sunita Deshmukh (Legal Counsel & Term Sheets)">Ms. Sunita Deshmukh (Legal Counsel & Term Sheets)</option>
+              <option value="Saurabh Srivastava (Angel Investor & Unit Economics)">Saurabh Srivastava (Angel Investor & Unit Economics)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Specific Deliberation Agenda *</label>
+            <textarea class="form-textarea" id="req-mentor-topic" required placeholder="Outline current bottleneck, technical questions, or market entry strategy to discuss..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-request-mentor')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="send"></i> Dispatch Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <!-- MODAL: ADMIN CREATE HACKATHON -->
+  <div class="modal-overlay" id="modal-create-hackathon">
+    <div class="modal-dialog" style="max-width: 620px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Create & Publish New Hackathon</h3>
+          <p>GBU Incubation 2.0 Challenge Administration</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-create-hackathon')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCreateHackathon(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Competition Title *</label>
+            <input type="text" class="form-input" id="admin-new-hack-title" required placeholder="e.g. Uttar Pradesh AI & Cyber Security Challenge 2027">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Theme / Problem Statement Overview *</label>
+            <textarea class="form-textarea" id="admin-new-hack-theme" required placeholder="Outline key focus areas, domains, and target innovation impact..."></textarea>
+          </div>
+
+          <div class="grid grid-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Registration Deadline *</label>
+              <input type="text" class="form-input" id="admin-new-hack-deadline" required placeholder="e.g. May 15, 2027">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Event Dates *</label>
+              <input type="text" class="form-input" id="admin-new-hack-dates" required placeholder="e.g. May 22-24, 2027">
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Total Prize Pool & Grant *</label>
+              <input type="text" class="form-input" id="admin-new-hack-prize" required placeholder="e.g. ₹3,50,000 + Incubation Grant">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Venue / Mode *</label>
+              <input type="text" class="form-input" id="admin-new-hack-venue" required placeholder="e.g. GBU Auditorium & Hybrid">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-create-hackathon')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="check-circle"></i> Publish Competition</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADMIN CREATE EVENT -->
+  <div class="modal-overlay" id="modal-create-event">
+    <div class="modal-dialog" style="max-width: 620px;">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3>Schedule & Publish New Event / Workshop</h3>
+          <p>AIC-GBU Programs & Capacity Building Administration</p>
+        </div>
+        <button class="modal-close-btn" onclick="closeModal('modal-create-event')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCreateEvent(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Event Title *</label>
+            <input type="text" class="form-input" id="admin-new-evt-title" required placeholder="e.g. Demystifying Angel Term Sheets & Dilution">
+          </div>
+
+          <div class="grid grid-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Category *</label>
+              <select class="form-select" id="admin-new-evt-cat">
+                <option value="Workshop & Masterclass">Workshop & Masterclass</option>
+                <option value="Mentorship Clinic">Mentorship Clinic</option>
+                <option value="Investor Pitch Session">Investor Pitch Session</option>
+                <option value="Policy & IP Awareness">Policy & IP Awareness</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Seat Quota Capacity *</label>
+              <input type="number" class="form-input" id="admin-new-evt-capacity" required value="100" min="10" max="1000">
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Date *</label>
+              <input type="text" class="form-input" id="admin-new-evt-date" required placeholder="e.g. May 10, 2027">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Time Window *</label>
+              <input type="text" class="form-input" id="admin-new-evt-time" required placeholder="e.g. 02:30 PM - 05:00 PM">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Venue / Room *</label>
+            <input type="text" class="form-input" id="admin-new-evt-venue" required placeholder="e.g. Seminar Hall 3, SoVSAS / Online Zoom">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Event Description & Learning Outcomes *</label>
+            <textarea class="form-textarea" id="admin-new-evt-desc" required placeholder="Key takeaways, speakers, and target student or founder audience..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closeModal('modal-create-event')">Cancel</button>
+          <button type="submit" class="btn btn-primary"><i data-lucide="calendar-check"></i> Publish Event</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+<!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container container-wide">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>GBU Incubation 2.0</h4>
+          <p>
+            Atal Incubation Centre – Gautam Buddha University Research and Innovation Foundation (GBURIF). Registered section 8 company nurturing deeptech entrepreneurship in Greater Noida, UP.
+          </p>
+          <div style="font-size: 0.85rem; color: #CBD5E1;">
+            <p><i data-lucide="map-pin" style="width: 14px; height: 14px; vertical-align: middle;"></i> S-16 Admin Block, GBU Campus, Greater Noida, UP - 201312</p>
+            <p><i data-lucide="mail" style="width: 14px; height: 14px; vertical-align: middle;"></i> incubator@gbu.ac.in | gburif@gbu.ac.in</p>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Dedicated Portals</h5>
+          <ul class="footer-links">
+            <li><a onclick="switchView('student')">Student Innovation Portal</a></li>
+            <li><a onclick="switchView('facilities')">Labs & Facilities Portal</a></li>
+            <li><a onclick="switchView('funding')">Grants & Funding Ledger</a></li>
+            <li><a onclick="switchView('hackathons')">Hackathon Management Portal</a></li>
+            <li><a onclick="switchView('events')">Events & Programs Portal</a></li>
+            <li><a onclick="switchView('startups')">Startup Portfolio Portal</a></li>
+            <li><a onclick="setRole('admin'); switchView('admin')">Unified Admin Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Institutional Links</h5>
+          <ul class="footer-links">
+            <li><a href="https://www.gbu.ac.in" target="_blank">Gautam Buddha University</a></li>
+            <li><a href="https://www.gburif.org" target="_blank">Existing GBURIF Portal</a></li>
+            <li><a href="https://startinup.up.gov.in" target="_blank">StartInUP Mission</a></li>
+            <li><a href="https://startupindia.gov.in" target="_blank">Startup India Portal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Transformation Note</h5>
+          <p style="font-size: 0.85rem; color: #94A3B8;">
+            Prepared for GBU incubation leadership, university administration and implementation partners. Built on GBU's foundation to deliver a connected digital startup ecosystem.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2027 Gautam Buddha University Research and Innovation Foundation. All rights reserved.
+        </div>
+        <div>
+          Designed for GBU Incubation 2.0 Transformation Initiative
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Vendor Scripts (Local) -->
+  <script src="assets/vendor/lucide.js"></script>
+  <script src="assets/vendor/qrcode.min.js"></script>
+  <script src="assets/vendor/confetti.min.js"></script>
+
+  <!-- Application Logic -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/controllers.js"></script>
+  <!-- GLOBAL SEARCH OVERLAY -->
+  <div class="global-search-overlay" id="global-search-overlay" onclick="closeGlobalSearch(event)">
+    <div class="search-dialog" onclick="event.stopPropagation()">
+      <div class="search-input-row">
+        <i data-lucide="search" style="color: var(--muted); flex-shrink:0; width:20px;height:20px;"></i>
+        <input type="text" id="global-search-input" placeholder="Search hackathons, events, startups, mentors..." oninput="handleGlobalSearch(event)" autofocus>
+        <button class="btn btn-subtle btn-sm" onclick="closeGlobalSearch()"><i data-lucide="x"></i></button>
+      </div>
+      <div id="search-results-wrap">
+        <div class="search-result-item" onclick="switchView('hackathons'); closeGlobalSearch()">
+          <div class="search-result-icon"><i data-lucide="terminal" style="width:16px;height:16px;"></i></div>
+          <div><div class="search-result-text">GBU Innovation Grand Challenge 2027</div><div class="search-result-sub">Hackathon — Registration Open until Apr 15</div></div>
+        </div>
+        <div class="search-result-item" onclick="switchView('events'); closeGlobalSearch()">
+          <div class="search-result-icon"><i data-lucide="calendar" style="width:16px;height:16px;"></i></div>
+          <div><div class="search-result-text">Annual Startup Conclave 2027</div><div class="search-result-sub">Event — May 14, GBU Auditorium</div></div>
+        </div>
+        <div class="search-result-item" onclick="switchView('startups'); closeGlobalSearch()">
+          <div class="search-result-icon"><i data-lucide="briefcase" style="width:16px;height:16px;"></i></div>
+          <div><div class="search-result-text">Puraseed Biotech Pvt Ltd</div><div class="search-result-sub">Startup — AgriTech &amp; BioSolutions</div></div>
+        </div>
+        <div class="search-result-item" onclick="switchView('facilities'); closeGlobalSearch()">
+          <div class="search-result-icon"><i data-lucide="cpu" style="width:16px;height:16px;"></i></div>
+          <div><div class="search-result-text">IoT, Drone &amp; Embedded Systems Lab</div><div class="search-result-sub">Facility — Block S-16, Available for Reservation</div></div>
+        </div>
+        <div class="search-result-item" onclick="openApplicationWizard(); closeGlobalSearch()">
+          <div class="search-result-icon"><i data-lucide="rocket" style="width:16px;height:16px;"></i></div>
+          <div><div class="search-result-text">Apply for Incubation Allotment</div><div class="search-result-sub">Action — Start your startup application</div></div>
+        </div>
+      </div>
+      <div class="search-footer">
+        <span class="search-shortcut"><kbd>Esc</kbd> to close</span>
+        <span class="search-shortcut"><kbd>Enter</kbd> to select</span>
+        <span class="search-shortcut"><kbd>Ctrl</kbd><kbd>K</kbd> to open</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING ACTION BUTTON GROUP -->
+  <div class="fab-group" id="fab-group">
+    <div class="fab-sub-group" id="fab-sub-group">
+      <button class="fab-sub-btn" onclick="openApplicationWizard(); closeFab()">
+        <div class="fab-sub-icon"><i data-lucide="rocket" style="width:14px;height:14px;"></i></div>
+        Apply for Incubation
+      </button>
+      <button class="fab-sub-btn" onclick="openModal('modal-book-lab'); closeFab()">
+        <div class="fab-sub-icon"><i data-lucide="cpu" style="width:14px;height:14px;"></i></div>
+        Book Lab Bench
+      </button>
+      <button class="fab-sub-btn" onclick="startHackathonRegistration('hack-2027-1'); closeFab()">
+        <div class="fab-sub-icon"><i data-lucide="terminal" style="width:14px;height:14px;"></i></div>
+        Register for Hackathon
+      </button>
+      <button class="fab-sub-btn" onclick="openModal('modal-request-mentor'); closeFab()">
+        <div class="fab-sub-icon"><i data-lucide="user-check" style="width:14px;height:14px;"></i></div>
+        Request Mentor Session
+      </button>
+    </div>
+    <button class="fab-main" id="fab-main-btn" onclick="toggleFab()" title="Quick Actions">
+      <i data-lucide="plus" style="width:22px;height:22px;"></i>
+    </button>
+  </div>
+
+  <!-- HELP / CHAT WIDGET -->
+  <div class="chat-widget" id="chat-widget">
+    <div class="chat-widget-header">
+      <div class="chat-avatar-ring" style="position:relative;">
+        <i data-lucide="bot" style="width:20px;height:20px;"></i>
+        <span class="chat-online-dot"></span>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:0.9rem;">GBU Incubation Assistant</div>
+        <div style="font-size:0.72rem;color:rgba(255,255,255,0.7);">Online — Typically replies instantly</div>
+      </div>
+      <button onclick="toggleChat()" style="margin-left:auto;background:transparent;border:none;color:#FFF;cursor:pointer;">
+        <i data-lucide="x" style="width:18px;height:18px;"></i>
+      </button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-bubble bot">Hello! I am the GBU Incubation digital assistant. How can I help you today?</div>
+      <div class="chat-bubble bot">You can ask me about: Hackathon registration, Lab bench booking, Incubation applications, Seed grants, or Events.</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Type your question..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+      <button class="chat-send-btn" onclick="sendChatMessage()"><i data-lucide="send" style="width:16px;height:16px;"></i></button>
+    </div>
+  </div>
+
+  <!-- INLINE SCRIPTS: New UI interactions -->
+  <script>
+    // Scroll Progress Bar
+    window.addEventListener('scroll', function() {
+      const el = document.getElementById('scroll-progress');
+      if (!el) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      el.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+
+    // Notification Bell
+    function toggleNotifications() {
+      const dd = document.getElementById('notif-dropdown');
+      dd.classList.toggle('open');
+    }
+    function clearNotifications(e) {
+      e.stopPropagation();
+      document.querySelectorAll('.notif-item.unread').forEach(i => i.classList.remove('unread'));
+      const badge = document.getElementById('notif-count');
+      if (badge) badge.style.display = 'none';
+      document.getElementById('notif-dropdown').classList.remove('open');
+    }
+    document.addEventListener('click', function(e) {
+      const wrap = document.querySelector('.notification-bell-wrap');
+      if (wrap && !wrap.contains(e.target)) {
+        const dd = document.getElementById('notif-dropdown');
+        if (dd) dd.classList.remove('open');
+      }
+    });
+
+    // Global Search
+    function openGlobalSearch() {
+      const overlay = document.getElementById('global-search-overlay');
+      overlay.classList.add('open');
+      setTimeout(() => { const inp = document.getElementById('global-search-input'); if(inp) inp.focus(); }, 100);
+    }
+    function closeGlobalSearch(e) {
+      if (e && e.target !== document.getElementById('global-search-overlay')) return;
+      document.getElementById('global-search-overlay').classList.remove('open');
+    }
+    function handleGlobalSearch(e) { /* Live search filtering can be added here */ }
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openGlobalSearch(); }
+      if (e.key === 'Escape') { document.getElementById('global-search-overlay').classList.remove('open'); }
+    });
+
+    // FAB
+    function toggleFab() {
+      document.getElementById('fab-sub-group').classList.toggle('open');
+    }
+    function closeFab() {
+      document.getElementById('fab-sub-group').classList.remove('open');
+    }
+
+    // Chat Widget
+    function toggleChat() {
+      document.getElementById('chat-widget').classList.toggle('open');
+    }
+    function sendChatMessage() {
+      const inp = document.getElementById('chat-input');
+      const msgs = document.getElementById('chat-messages');
+      if (!inp || !inp.value.trim()) return;
+      const userBubble = document.createElement('div');
+      userBubble.className = 'chat-bubble user';
+      userBubble.textContent = inp.value.trim();
+      msgs.appendChild(userBubble);
+      inp.value = '';
+      msgs.scrollTop = msgs.scrollHeight;
+      setTimeout(function() {
+        const botBubble = document.createElement('div');
+        botBubble.className = 'chat-bubble bot';
+        botBubble.textContent = 'Thank you for your message! Our incubation team will get back to you shortly. You can also visit the Student Portal for quick actions.';
+        msgs.appendChild(botBubble);
+        msgs.scrollTop = msgs.scrollHeight;
+      }, 800);
+    }
+
+    // FAQ Accordion
+    function toggleFaq(item) {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
